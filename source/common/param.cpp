@@ -1524,8 +1524,6 @@ int x265_check_params(x265_param* param)
     CHECK(param->maxNumReferences < 1, "maxNumReferences must be 1 or greater.");
     CHECK(param->maxNumReferences > MAX_NUM_REF, "maxNumReferences must be 16 or smaller.");
 
-    CHECK(param->sourceWidth < (int)param->maxCUSize || param->sourceHeight < (int)param->maxCUSize,
-          "Picture size must be at least one CTU");
     CHECK(param->internalCsp < X265_CSP_I400 || X265_CSP_I444 < param->internalCsp,
           "chroma subsampling must be i400 (4:0:0 monochrome), i420 (4:2:0 default), i422 (4:2:0), i444 (4:4:4)");
     CHECK(param->sourceWidth & !!CHROMA_H_SHIFT(param->internalCsp),
